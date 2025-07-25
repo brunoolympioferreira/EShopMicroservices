@@ -18,6 +18,4 @@ var app = builder.Build();
 app.MapCarter();
 app.UseExceptionHandler(options => { });
 
-app.MapGet("/", () => "Hello World!");
-
 app.Run();
