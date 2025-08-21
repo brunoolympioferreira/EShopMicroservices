@@ -1,4 +1,5 @@
 using BuildingBlocks.Exceptions.Handler;
+using Discount.Grpc;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -31,6 +32,12 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
 
+//Grpc Services
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+{
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
+});
+
 /// -> Decorator manual para injetar CachedBasketRepository
 //builder.Services.AddScoped<IBasketRepository>(provider =>
 //{
@@ -38,6 +45,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
 //    return new CachedBasketRepository(basketRepository, provider.GetRequiredService<IDistributedCache>());
 //});
 
+
+//Cross-Cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddHealthChecks()
