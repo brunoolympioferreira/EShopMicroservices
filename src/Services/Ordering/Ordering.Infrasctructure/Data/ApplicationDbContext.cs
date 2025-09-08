@@ -8,7 +8,7 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
         : base(options) { }
 
-    public DbSet<Custumer> Custumers => Set<Custumer>();
+    public DbSet<Customer> Custumers => Set<Customer>();
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
