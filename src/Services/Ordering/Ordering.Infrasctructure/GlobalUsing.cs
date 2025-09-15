@@ -6,3 +6,4 @@ global using Ordering.Domain.ValueObjects;
 global using Ordering.Domain.Enums;
 global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.DependencyInjection;
+global using Ordering.Domain.Abstractions;
