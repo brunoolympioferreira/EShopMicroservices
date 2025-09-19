@@ -12,8 +12,6 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
 
-        //services.AddScoped<IApplicationDbContext, AppicationDbContext>();
-
         return services;
     }
 }
