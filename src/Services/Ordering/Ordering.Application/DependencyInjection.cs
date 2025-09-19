@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Ordering.Application.Data;
 using System.Reflection;
 
 namespace Ordering.Application;
@@ -10,6 +11,8 @@ public static class DependencyInjection
         {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
+
+        //services.AddScoped<IApplicationDbContext, AppicationDbContext>();
 
         return services;
     }
