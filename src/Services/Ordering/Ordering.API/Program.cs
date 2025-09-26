@@ -6,7 +6,6 @@ using Ordering.Infrasctructure.Data.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 //Add services to the container.
-
 builder.Services
     .AddApplicationServices()
     .AddInfrastructureServices(builder.Configuration)
